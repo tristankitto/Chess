@@ -5,13 +5,17 @@ import java.util.*;
 public class Piece {
     int xp;
     int yp;
+    int x;
+    int y;
     boolean isWhite;
-    LinkedList<Piece> ps;
+    ArrayList<Piece> ps;
     String name;
 
-    public Piece(int xp, int yp, boolean isWhite, String name, LinkedList<Piece> ps) {
+    public Piece(int xp, int yp, boolean isWhite, String name, ArrayList<Piece> ps) {
         this.xp = xp;
         this.yp = yp;
+        x = xp * 64;
+        y = yp * 64;
         this.isWhite = isWhite;
         this.name = name;
         this.ps = ps;
@@ -19,16 +23,13 @@ public class Piece {
     }
 
     public void move(int xp, int yp) {
-        for (Piece p : ps) {
-            if(p.xp == xp && p.yp == yp){
-                p.kill();
-            }
-        }
-        this.xp = xp;
-        this.yp = yp;
+            this.xp = xp;
+            this.yp = yp;
+            x = xp * 64;
+            y = yp * 64;
     }
 
-    public void kill(){
+    public void kill() {
         ps.remove(this);
     }
 }
