@@ -89,8 +89,10 @@ public class Chess {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                selectedPiece.move(e.getX()/64, e.getY()/64);
-                frame.repaint();
+                if(selectedPiece != null){
+                    selectedPiece.move(e.getX()/64, e.getY()/64);
+                    frame.repaint();
+                }
             }
 
             @Override
@@ -136,39 +138,29 @@ public class Chess {
             }
         }
 
-        Piece bRook1 = new Piece(0,0,false, "rook", ps);
-        Piece bKnight1 = new Piece(1,0,false,"knight", ps);
-        Piece bBishop1 = new Piece(2,0,false,"bishop",ps);
-        Piece bQueen= new Piece(3,0,false,"queen",ps);
-        Piece bKing = new Piece(4,0,false,"king",ps);
-        Piece bBishop2 = new Piece(5,0,false,"bishop",ps);
-        Piece bKnight2= new Piece(6,0,false,"knight",ps);
-        Piece bRook2 = new Piece(7,0,false,"rook",ps);
-        Piece bPawn1 = new Piece(0,1,false,"pawn",ps);
-        Piece bPawn2 = new Piece(1,1,false,"pawn",ps);
-        Piece bPawn3 = new Piece(2,1,false,"pawn",ps);
-        Piece bPawn4 = new Piece(3,1,false,"pawn",ps);
-        Piece bPawn5 = new Piece(4,1,false,"pawn",ps);
-        Piece bPawn6 = new Piece(5,1,false,"pawn",ps);
-        Piece bPawn7 = new Piece(6,1,false,"pawn",ps);
-        Piece bPawn8 = new Piece(7,1,false,"pawn",ps);
+        new Piece(0,0,false, "rook", ps);
+        new Piece(1,0,false,"knight", ps);
+        new Piece(2,0,false,"bishop",ps);
+        new Piece(3,0,false,"queen",ps);
+        new Piece(4,0,false,"king",ps);
+        new Piece(5,0,false,"bishop",ps);
+        new Piece(6,0,false,"knight",ps);
+        new Piece(7,0,false,"rook",ps);
+        for(int p = 0; p<8; p++){
+            new Piece(p,1,false,"pawn",ps);
+        }
 
-        Piece wRook1 = new Piece(0,7,true, "rook", ps);
-        Piece wKnight1 = new Piece(1,7,true,"knight", ps);
-        Piece wBishop1 = new Piece(2,7,true,"bishop",ps);
-        Piece wQueen= new Piece(3,7,true,"queen",ps);
-        Piece wKing = new Piece(4,7,true,"king",ps);
-        Piece wBishop2 = new Piece(5,7,true,"bishop",ps);
-        Piece wKnight2= new Piece(6,7,true,"knight",ps);
-        Piece wRook2 = new Piece(7,7,true,"rook",ps);
-        Piece wPawn1 = new Piece(0,6,true,"pawn",ps);
-        Piece wPawn2 = new Piece(1,6,true,"pawn",ps);
-        Piece wPawn3 = new Piece(2,6,true,"pawn",ps);
-        Piece wPawn4 = new Piece(3,6,true,"pawn",ps);
-        Piece wPawn5 = new Piece(4,6,true,"pawn",ps);
-        Piece wPawn6 = new Piece(5,6,true,"pawn",ps);
-        Piece wPawn7 = new Piece(6,6,true,"pawn",ps);
-        Piece wPawn8 = new Piece(7,6,true,"pawn",ps);
+        new Piece(0,7,true, "rook", ps);
+        new Piece(1,7,true,"knight", ps);
+        new Piece(2,7,true,"bishop",ps);
+        new Piece(3,7,true,"queen",ps);
+        new Piece(4,7,true,"king",ps);
+        new Piece(5,7,true,"bishop",ps);
+        new Piece(6,7,true,"knight",ps);
+        new Piece(7,7,true,"rook",ps);
+        for(int p = 0; p<8; p++){
+            new Piece(p,6,true,"pawn",ps);
+        }
     }
 
     public static Piece getPiece(int x, int y){
