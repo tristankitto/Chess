@@ -44,35 +44,14 @@ public class Chess {
                     white = !white;
                 }
                 for (Piece p : ps) {
-                    int pieceIndex = 0;
-                    switch (p.name.toLowerCase()) {
-                        case "king":
-                            pieceIndex = 0;
-                            break;
-                        case "queen":
-                            pieceIndex = 1;
-                            break;
-                        case "bishop":
-                            pieceIndex = 2;
-                            break;
-                        case "knight":
-                            pieceIndex = 3;
-                            break;
-                        case "rook":
-                            pieceIndex = 4;
-                            break;
-                        case "pawn":
-                            pieceIndex = 5;
-                            break;
-                    }
-                    if (!p.isWhite) {
-                        pieceIndex += 6;
-                    }
-
-                    g.drawImage(pieceImages[pieceIndex], p.x, p.y, this);
+                    g.drawImage(pieceImages[p.index], p.x, p.y, this);
+                }
+                if(selectedPiece != null){
+                    g.drawImage(pieceImages[selectedPiece.index], selectedPiece.x, selectedPiece.y, this);
                 }
             }
         };
+        
         frame.add(panel);
 
         frame.addMouseListener(new MouseListener() {
@@ -83,14 +62,14 @@ public class Chess {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                //System.out.println(getPiece(e.getX(), e.getY()).name);
+                // System.out.println(getPiece(e.getX(), e.getY()).name);
                 selectedPiece = getPiece(e.getX(), e.getY());
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                if(selectedPiece != null){
-                    selectedPiece.move(e.getX()/64, e.getY()/64);
+                if (selectedPiece != null) {
+                    selectedPiece.move(e.getX() / 64, e.getY() / 64);
                     frame.repaint();
                 }
             }
@@ -102,16 +81,16 @@ public class Chess {
             @Override
             public void mouseExited(MouseEvent e) {
             }
-            
+
         });
 
         frame.addMouseMotionListener(new MouseMotionListener() {
 
             @Override
             public void mouseDragged(MouseEvent e) {
-                if(selectedPiece != null){
-                    selectedPiece.x = e.getX()-38;
-                    selectedPiece.y = e.getY()-64;
+                if (selectedPiece != null) {
+                    selectedPiece.x = e.getX() - 38;
+                    selectedPiece.y = e.getY() - 64;
                     frame.repaint();
                 }
             }
@@ -121,13 +100,15 @@ public class Chess {
             }
         });
 
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
 
     }
 
-    private static void drawPieces() throws Exception{
+    private static void drawPieces() throws Exception {
         BufferedImage allPieces = ImageIO.read(Chess.class.getClassLoader().getResource("chessPieces.png"));
         pieceImages = new Image[12];
+        
         int i = 0;
 
         for (int y = 0; y < 400; y += 200) {
@@ -138,36 +119,36 @@ public class Chess {
             }
         }
 
-        new Piece(0,0,false, "rook", ps);
-        new Piece(1,0,false,"knight", ps);
-        new Piece(2,0,false,"bishop",ps);
-        new Piece(3,0,false,"queen",ps);
-        new Piece(4,0,false,"king",ps);
-        new Piece(5,0,false,"bishop",ps);
-        new Piece(6,0,false,"knight",ps);
-        new Piece(7,0,false,"rook",ps);
-        for(int p = 0; p<8; p++){
-            new Piece(p,1,false,"pawn",ps);
+        new Rook(0, 0, false, ps);
+        new Knight(1, 0, false, ps);
+        new Bishop(2, 0, false, ps);
+        new Queen(3, 0, false, ps);
+        new King(4, 0, false, ps);
+        new Bishop(5, 0, false, ps);
+        new Knight(6, 0, false, ps);
+        new Rook(7, 0, false, ps);
+        for (int p = 0; p < 8; p++) {
+            new Pawn(p, 1, false, ps);
         }
 
-        new Piece(0,7,true, "rook", ps);
-        new Piece(1,7,true,"knight", ps);
-        new Piece(2,7,true,"bishop",ps);
-        new Piece(3,7,true,"queen",ps);
-        new Piece(4,7,true,"king",ps);
-        new Piece(5,7,true,"bishop",ps);
-        new Piece(6,7,true,"knight",ps);
-        new Piece(7,7,true,"rook",ps);
-        for(int p = 0; p<8; p++){
-            new Piece(p,6,true,"pawn",ps);
+        new Rook(0, 7, true, ps);
+        new Knight(1, 7, true, ps);
+        new Bishop(2, 7, true, ps);
+        new Queen(3, 7, true, ps);
+        new King(4, 7, true, ps);
+        new Bishop(5, 7, true, ps);
+        new Knight(6, 7, true, ps);
+        new Rook(7, 7, true, ps);
+        for (int p = 0; p < 8; p++) {
+            new Pawn(p, 6, true, ps);
         }
     }
 
-    public static Piece getPiece(int x, int y){
-        int xp = x/64;
-        int yp = y/64;
-        for(Piece p: ps){
-            if(p.xp == xp && p.yp == yp){
+    public static Piece getPiece(int x, int y) {
+        int xp = x / 64;
+        int yp = y / 64;
+        for (Piece p : ps) {
+            if (p.xp == xp && p.yp == yp) {
                 return p;
             }
         }

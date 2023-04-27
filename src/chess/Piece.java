@@ -7,17 +7,16 @@ public class Piece {
     int yp;
     int x;
     int y;
+    int index;
     boolean isWhite;
     ArrayList<Piece> ps;
-    String name;
 
-    public Piece(int xp, int yp, boolean isWhite, String name, ArrayList<Piece> ps) {
+    public Piece(int xp, int yp, boolean isWhite, ArrayList<Piece> ps) {
         this.xp = xp;
         this.yp = yp;
         x = xp * 64;
         y = yp * 64;
         this.isWhite = isWhite;
-        this.name = name;
         this.ps = ps;
         ps.add(this);
     }
