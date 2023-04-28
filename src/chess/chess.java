@@ -1,9 +1,7 @@
 package Chess;
 
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -16,6 +14,7 @@ public class Chess {
     protected static Image pieceImages[];
     protected static Piece[] pieces;
     protected static Piece selectedPiece;
+    public static boolean whiteTurn = true;
 
     private static void createGUI() throws Exception {
         JFrame frame = new JFrame("Chess");
@@ -51,7 +50,7 @@ public class Chess {
                 }
             }
         };
-        
+
         frame.add(panel);
 
         frame.addMouseListener(new MouseListener() {
