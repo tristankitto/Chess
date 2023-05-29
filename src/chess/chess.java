@@ -45,7 +45,7 @@ public class Chess {
                 for (Piece p : ps) {
                     g.drawImage(pieceImages[p.index], p.x, p.y, this);
                 }
-                if(selectedPiece != null){
+                if (selectedPiece != null) {
                     g.drawImage(pieceImages[selectedPiece.index], selectedPiece.x, selectedPiece.y, this);
                 }
             }
@@ -53,19 +53,13 @@ public class Chess {
 
         frame.add(panel);
 
-        frame.addMouseListener(new MouseListener() {
+        frame.addMouseListener(new MouseAdapter() {
 
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-
-            @Override
             public void mousePressed(MouseEvent e) {
                 // System.out.println(getPiece(e.getX(), e.getY()).name);
                 selectedPiece = getPiece(e.getX(), e.getY());
             }
 
-            @Override
             public void mouseReleased(MouseEvent e) {
                 if (selectedPiece != null) {
                     selectedPiece.move(e.getX() / 64, e.getY() / 64);
@@ -73,29 +67,15 @@ public class Chess {
                 }
             }
 
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-
         });
 
-        frame.addMouseMotionListener(new MouseMotionListener() {
-
-            @Override
+        frame.addMouseMotionListener(new MouseMotionAdapter() {
             public void mouseDragged(MouseEvent e) {
                 if (selectedPiece != null) {
                     selectedPiece.x = e.getX() - 38;
                     selectedPiece.y = e.getY() - 64;
                     frame.repaint();
                 }
-            }
-
-            @Override
-            public void mouseMoved(MouseEvent e) {
             }
         });
 
@@ -107,7 +87,7 @@ public class Chess {
     private static void drawPieces() throws Exception {
         BufferedImage allPieces = ImageIO.read(Chess.class.getClassLoader().getResource("chessPieces.png"));
         pieceImages = new Image[12];
-        
+
         int i = 0;
 
         for (int y = 0; y < 400; y += 200) {
