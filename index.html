@@ -1,74 +1,198 @@
-<h1>Chess <img src=https://raw.githubusercontent.com/tristankitto/Chess/main/src/chessicon.png height="50"
-        align="center">
+<!DOCTYPE html>
+<html lang="en">
 
-    <h2>Chess made in java! by Tristan Kitto</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
 
-    <p>A personal project of mine combining 2 of my hobbies, coding and chess.</p>
+        h1 {
+            color: #333;
+            text-align: center;
+        }
 
-    <h2>Features</h2>
+        h2 {
+            color: #666;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
 
-    <ul>
-        <li>Play chess locally with friends</li>
-        <li>Support for standard chess rules including castling and en passant</li>
-        <li>Visual representation of the chess board using Java Swing library</li>
-        <li>Mouse inputs for making moves</li>
-    </ul>
+        p {
+            color: #000000;
+            line-height: 1.5;
+        }
 
-    <h2>Getting Started</h2>
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
 
-    <ol>
-        <li>Clone the repository:</li>
-    </ol>
+        ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
 
-    <pre><code>git clone https://github.com/tristankitto/chess.git
+        pre {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        /* Additional styles for color */
+
+        h1 img {
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        .container {
+            background-color: #08b8b83b;
+            color: #000000;
+        }
+
+        .container h2 {
+            color: #8a1a12b7;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            color: #555;
+        }
+
+        .container ul {
+            color: #555;
+        }
+
+        .container ol {
+            color: #555;
+        }
+
+        .container pre {
+            background-color: #991f1f42;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        .container code {
+            font-family: Consolas, monospace;
+            background-color: #991f1f00;
+            color: #000000;
+            padding: 2px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Chess <img src="https://raw.githubusercontent.com/tristankitto/Chess/main/src/chessicon.png"
+                alt="Chess icon" width=50></h1>
+
+        <h2>Chess made in java! by Tristan Kitto</h2>
+
+        <p>A personal project of mine combining 2 of my hobbies, coding and chess.</p>
+
+        <h2>Features</h2>
+
+        <ul>
+            <li>Play chess locally with friends</li>
+            <li>Support for standard chess rules including castling and en passant</li>
+            <li>Visual representation of the chess board using Java Swing library</li>
+            <li>Mouse inputs for making moves</li>
+        </ul>
+
+        <h2>Getting Started</h2>
+
+        <ol>
+            <li>Clone the repository:</li>
+        </ol>
+
+        <pre><code>git clone https://github.com/tristankitto/chess.git
 </code></pre>
 
-    <ol start="2">
-        <li>Navigate to the directory and compile the Java source code:</li>
-    </ol>
+        <ol start="2">
+            <li>Navigate to the directory and compile the Java source code:</li>
+        </ol>
 
-    <pre><code>javac *.java
+        <pre><code>javac *.java
 </code></pre>
 
-    <ol start="3">
-        <li>Run the game:</li>
-    </ol>
+        <ol start="3">
+            <li>Run the game:</li>
+        </ol>
 
-    <pre><code>java Chess.java
+        <pre><code>java Chess.java
 </code></pre>
 
-    <h2>How to Play</h2>
+        <h2>How to Play</h2>
 
-    <ol>
-        <li>The game starts with a standard chess board displayed in a new window.</li>
-        <li>Each player takes turn moving a piece, with the white pieces moving first.</li>
-        <li>Moves are made by clicking and dragging a piece to the desired square. Invalid moves will result in the
-            piece
-            moving back to where it started.</li>
-        <li>Checkmate occurs when a player's king is in a position to be captured (in "check") and there is no legal
-            move
-            that can prevent its capture, resulting in the end of the game.</li>
-    </ol>
+        <ol>
+            <li>The game starts with a standard chess board displayed in a new window.</li>
+            <li>Each player takes turn moving a piece, with the white pieces moving first.</li>
+            <li>Moves are made by clicking and dragging a piece to the desired square. Invalid moves will result in the
+                piece moving back to where it started.</li>
+            <li>Checkmate occurs when a player's king is in a position to be captured (in "check") and there is no legal
+                move that can prevent its capture, resulting in the end of the game.</li>
+        </ol>
 
-    <h2>Planned Features</h2>
+        <h2>Planned Features</h2>
 
-    <ul>
-        <li>Promoting pawns when they reach the back rank.</li>
-        <li>Clicking on a piece to show all valid moves.</li>
-        <li>Confirming when a king has been checked or checkmated and by extension ensuring no illegal moves can be
-            made.
-        </li>
-        <li>Undo/Redo moves.</li>
-    </ul>
+        <ul>
+            <li>Promoting pawns when they reach the back rank.</li>
+            <li>Clicking on a piece to show all valid moves.</li>
+            <li>Confirming when a king has been checked or checkmated and by extension ensuring no illegal moves can be
+                made.</li>
+            <li>Undo/Redo moves.</li>
+        </ul>
 
-    <h2>Contributing</h2>
+        <h2>Contributing</h2>
 
-    <p>Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open
-        an
-        issue or submit a pull request.</p>
+        <p>Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to
+            open an issue or submit a pull request.</p>
 
-    <h2>License</h2>
+        <h2>License</h2>
 
-    <p>This project is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
-            4.0</a>
-        license.</p>
+        <p>This project is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA
+                4.0</a> license.</p>
+    </div>
+</body>
+
+</html>
