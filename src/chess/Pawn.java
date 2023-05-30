@@ -79,7 +79,7 @@ public class Pawn extends Piece {
         } else if ((deltaX == 1 || deltaX == -1) && deltaY == direction && movePiece == null
                 && Chess.getPiece(xp * 64, (yp - direction) * 64) != null
                 && Chess.getPiece(xp * 64, (yp - direction) * 64) instanceof Pawn
-                && Chess.getPiece(xp * 64, (yp - direction) * 64).canEnPassant()
+                && Chess.getPiece(xp * 64, (yp - direction) * 64).enPassant
                 && Chess.getPiece(xp * 64, (yp - direction) * 64).isWhite != isWhite) {
             this.xp = xp;
             this.yp = yp;
@@ -94,14 +94,6 @@ public class Pawn extends Piece {
             x = this.xp * 64;
             y = this.yp * 64;
         }
-    }
-
-    public boolean canEnPassant() {
-        return enPassant;
-    }
-
-    public void setEnPassant(boolean enPassant) {
-        this.enPassant = enPassant;
     }
 
 }

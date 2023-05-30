@@ -9,6 +9,8 @@ public abstract class Piece {
     int y;
     int index;
     boolean isWhite;
+    boolean startingMove;
+    boolean enPassant;
     ArrayList<Piece> ps;
 
     public Piece(int xp, int yp, boolean isWhite, ArrayList<Piece> ps) {
@@ -26,14 +28,6 @@ public abstract class Piece {
     }
 
     public void move(int i, int j) {
-        return;
-    }
-
-    public boolean canEnPassant() {
-        return false;
-    }
-
-    public void setEnPassant(boolean enPassant) {
         return;
     }
 
