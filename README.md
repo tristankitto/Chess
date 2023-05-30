@@ -13,9 +13,30 @@ A personal project of mine combining 2 of my hobbies, coding and chess.
 
 ## Getting Started
 
+### Running the Application with a Jar File
+
+1. Download the repository.
+
+2. Install Java on your computer:
+
+```
+https://www.oracle.com/java/technologies/downloads/
+```
+
+3. Run the chess.jar file.
+
+
+### Running the Application with a Terminal
+
 1. Clone the repository:
 ```shell
 git clone https://github.com/tristankitto/chess.git
+```
+
+2. Install Java on your computer:
+
+```
+https://www.oracle.com/java/technologies/downloads/
 ```
 
 2. Navigate to the directory and compile the Java source code:
