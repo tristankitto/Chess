@@ -29,4 +29,12 @@ public abstract class Piece {
         return;
     }
 
+    public boolean canEnPassant() {
+        return false;
+    }
+
+    public void setEnPassant(boolean enPassant) {
+        return;
+    }
+
 }

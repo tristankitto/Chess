@@ -64,6 +64,11 @@ public class Chess {
                 if (selectedPiece != null) {
                     selectedPiece.move(e.getX() / 64, e.getY() / 64);
                     frame.repaint();
+                    for (Piece p : ps) {
+                        if (p != selectedPiece) {
+                            p.setEnPassant(false);
+                        }
+                    }
                 }
             }
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Pawn extends Piece {
 
     private boolean startingMove = true;
+    public boolean enPassant = false;
 
     public Pawn(int xp, int yp, boolean isWhite, ArrayList<Piece> ps) {
         super(xp, yp, isWhite, ps);
@@ -12,7 +13,7 @@ public class Pawn extends Piece {
     }
 
     public void move(int xp, int yp) {
-        if((Chess.whiteTurn && !isWhite || (!Chess.whiteTurn && isWhite))){
+        if ((Chess.whiteTurn && !isWhite || (!Chess.whiteTurn && isWhite))) {
             x = this.xp * 64;
             y = this.yp * 64;
             return;
@@ -38,6 +39,7 @@ public class Pawn extends Piece {
             x = xp * 64;
             y = yp * 64;
             startingMove = false;
+            enPassant = false;
             Chess.whiteTurn = !Chess.whiteTurn;
         } else if (deltaX == 0 && deltaY == 2 * direction && startingMove
                 && movePiece == null) {
@@ -56,6 +58,7 @@ public class Pawn extends Piece {
                 x = xp * 64;
                 y = yp * 64;
                 startingMove = false;
+                enPassant = true;
                 Chess.whiteTurn = !Chess.whiteTurn;
             } else {
                 // There is a piece blocking the pawn's path
@@ -70,13 +73,35 @@ public class Pawn extends Piece {
             x = xp * 64;
             y = yp * 64;
             startingMove = false;
+            enPassant = false;
             Chess.whiteTurn = !Chess.whiteTurn;
             movePiece.kill();
+        } else if ((deltaX == 1 || deltaX == -1) && deltaY == direction && movePiece == null
+                && Chess.getPiece(xp * 64, (yp - direction) * 64) != null
+                && Chess.getPiece(xp * 64, (yp - direction) * 64) instanceof Pawn
+                && Chess.getPiece(xp * 64, (yp - direction) * 64).canEnPassant()
+                && Chess.getPiece(xp * 64, (yp - direction) * 64).isWhite != isWhite) {
+            this.xp = xp;
+            this.yp = yp;
+            x = xp * 64;
+            y = yp * 64;
+            startingMove = false;
+            enPassant = false;
+            Chess.whiteTurn = !Chess.whiteTurn;
+            Chess.getPiece(xp * 64, (yp - direction) * 64).kill();
         } else {
             // Invalid move, return the pawn to its original position
             x = this.xp * 64;
             y = this.yp * 64;
         }
+    }
+
+    public boolean canEnPassant() {
+        return enPassant;
+    }
+
+    public void setEnPassant(boolean enPassant) {
+        this.enPassant = enPassant;
     }
 
 }
