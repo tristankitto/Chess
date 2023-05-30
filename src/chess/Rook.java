@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Rook extends Piece {
 
+    public boolean startingMove = true;
+
     public Rook(int xp, int yp, boolean isWhite, ArrayList<Piece> ps) {
         super(xp, yp, isWhite, ps);
         super.index = isWhite ? 4 : 10;
@@ -67,6 +69,21 @@ public class Rook extends Piece {
             x = this.xp * 64;
             y = this.yp * 64;
         }
+    }
+
+    public boolean getStartingMove() {
+        return startingMove;
+    }
+
+    public void castlingMove(int direction) {
+        if (direction == 1) {
+            this.xp = 3;
+            x = xp * 64;
+        } else {
+            this.xp = 5;
+            x = xp * 64;
+        }
+        startingMove = false;
     }
 
 }

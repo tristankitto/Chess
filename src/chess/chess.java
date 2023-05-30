@@ -66,7 +66,7 @@ public class Chess {
                     frame.repaint();
                     for (Piece p : ps) {
                         if (p != selectedPiece) {
-                            p.enPassant = false;
+                            p.setEnPassant(false);
                         }
                     }
                 }

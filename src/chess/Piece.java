@@ -31,4 +31,20 @@ public abstract class Piece {
         return;
     }
 
+    public boolean canEnPassant() {
+        return false;
+    }
+
+    public void setEnPassant(boolean enPassant) {
+        return;
+    }
+
+    public boolean getStartingMove() {
+        return false;
+    }
+
+    public void castlingMove(int direction) {
+        return;
+    }
+
 }
