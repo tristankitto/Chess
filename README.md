@@ -1,5 +1,4 @@
-# Chess
-![Chess icon](https://raw.githubusercontent.com/tristankitto/Chess/main/src/chessicon.png)
+# Chess <img src=https://raw.githubusercontent.com/tristankitto/Chess/main/src/chessicon.png height = "50" align = "center">
 
 ## Chess made in java! by Tristan Kitto
 
