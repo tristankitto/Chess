@@ -10,7 +10,13 @@ public class Queen extends Piece {
     }
 
     public void move(int xp, int yp) {
-        if((Chess.whiteTurn && !isWhite || (!Chess.whiteTurn && isWhite))){
+        if ((Chess.whiteTurn && !isWhite || (!Chess.whiteTurn && isWhite))) {
+            x = this.xp * 64;
+            y = this.yp * 64;
+            return;
+        }
+        // Check if the move is within the board
+        if (xp < 0 || xp > 7 || yp < 0 || yp > 7) {
             x = this.xp * 64;
             y = this.yp * 64;
             return;
@@ -47,7 +53,7 @@ public class Queen extends Piece {
             x = this.xp * 64;
             y = this.yp * 64;
             return;
-        } else if (movePiece != null){
+        } else if (movePiece != null) {
             movePiece.kill();
         }
 

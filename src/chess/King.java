@@ -17,6 +17,12 @@ public class King extends Piece {
             y = this.yp * 64;
             return;
         }
+        // Check if the move is within the board
+        if (xp < 0 || xp > 7 || yp < 0 || yp > 7) {
+            x = this.xp * 64;
+            y = this.yp * 64;
+            return;
+        }
 
         // Check if the move is within one square of the current position
         int deltaX = Math.abs(this.xp - xp);
