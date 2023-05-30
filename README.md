@@ -18,14 +18,14 @@ A personal project of mine combining 2 of my hobbies, coding and chess.
 git clone https://github.com/tristankitto/chess.git
 ```
 
-2. Compile the Java source code:
+2. Navigate to the directory and compile the Java source code:
 ```shell
-javac chess.java
+javac *.java
 ```
 
 3. Run the game:
 ```shell
-java chess
+java Chess.java
 ```
 
 ## How to Play
